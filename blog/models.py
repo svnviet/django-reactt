@@ -2,7 +2,7 @@ import datetime
 
 from django.db import models
 from django.contrib.auth.models import User
-from res_users.models import Customer
+from res_users.models import UserProfile
 
 
 class Blog(models.Model):
