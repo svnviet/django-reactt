@@ -8,3 +8,6 @@ class FilmApiView(viewsets.ModelViewSet):
     queryset = Blog.objects.all()
     serializer_class = FilmSerializers
     permission_classes = [IsAuthenticated, ]
+
+# "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMDc5MjkxLCJpYXQiOjE2NDMwMTk0OTYsImp0aSI6ImZmZmIwMmFhM2ZhODQyNGZhYzc1ODAyNGI2OTA3YWNmIiwidXNlcl9pZCI6MX0.x3AqVDrL7V6IFGt4WZeS5UQE-Nx2dKekMPmVCEZKFRI"
+# eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMDE5Nzk2LCJpYXQiOjE2NDMwMTk0OTYsImp0aSI6IjkwM2VhNGU3Y2Y2MTQzYTU5MDVlOGNjNmFmYjRhYThjIiwidXNlcl9pZCI6MX0.v4v3dvLA0k0ZndjbrIILNKim-PdbBjOkUwkP_G-4tZI
