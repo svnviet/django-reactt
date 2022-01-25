@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Blog
-from res_users.models import Customer
+from res_users.models import UserProfile
 
 
 class FilmSerializers(serializers.ModelSerializer):
