@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from .serializers import UserSerializer, RegisterSerializer
+from .serializers import UserSerializer, RegisterSerializer, UserProfileSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import UserProfile
@@ -21,6 +21,7 @@ class RegisterViewSet(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         refresh = None
         user = serializer.save()
+        UserProfile.object.create(user=user)
         refresh = RefreshToken.for_user(user)
         return Response({
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
@@ -32,6 +33,12 @@ class RegisterViewSet(generics.GenericAPIView):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
-    filter_backends = [DjangoFilterBackend]
+    # permission_classes = [IsAuthenticated]
+    # filter_backends = [DjangoFilterBackend]
     filterset_fields = ["id", "username"]
+
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    queryset = UserProfile.objects.all()
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserProfileSerializer
