@@ -9,5 +9,5 @@
 --- Install app ---
 
 - create venv : python3 -m venv env
-                source venv/env/activate
+- activate venv : source venv/env/activate
 - install requirements:  pip3 install -r requirements.txt
